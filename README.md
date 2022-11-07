@@ -3,3 +3,9 @@
 此处是[前端部分](https://github.com/funtogether2233/chatroom-vue)
 
 [后端部分在这里](https://github.com/funtogether2233/chatroom-express)
+
+使用技术栈:
+
+- Vue.js
+- ElementPlus
+- Less

@@ -1,15 +1,8 @@
-html,
-body,
-#app {
-  height: 100%;
-}
-
 // 长度
 @header-height: 70px;
 @list-card-width: 300px;
 @list-card-height: 60px;
 @avatar-img-diameter: 40px;
-@send-box-height:180px;
 
 // 颜色
 @scroll-color: #bbbcbe;
@@ -30,9 +23,23 @@ body,
   height: @avatar-img-diameter;
 }
 
-// 滚动条
+// 单行文本，超出部分显示省略号
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+// 高度100%，保证元素继承关系，使页面不超出
+html,
+body,
+#app {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+// 全局修改滚动条样式
 ::-webkit-scrollbar {
-  display: initial;
   width: 6px;
 }
 ::-webkit-scrollbar-thumb {
@@ -42,6 +49,8 @@ body,
 ::-webkit-scrollbar-thumb:hover {
   background: @scroll-hover-color;
 }
-.naver:hover::-webkit-scrollbar-thumb {
-  visibility: visible;
+
+// 修改element文本框字体大小
+.el-textarea__inner {
+  font-size: 16px;
 }

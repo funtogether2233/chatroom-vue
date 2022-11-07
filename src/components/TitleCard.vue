@@ -1,7 +1,9 @@
 <template>
   <div class="card">
     <img src="../assets/img/avatar-test.jpg" class="avatar" />
-    <p class="name">聊天室n</p>
+    <p class="name">
+      聊天室n
+    </p>
   </div>
 </template>
 
@@ -23,7 +25,10 @@ export default {
     margin: 0 10px 0 20px;
   }
   .name {
+    .text-ellipsis();
     flex-grow: 1;
+    font-size: 18px;
+    font-weight: bold;
   }
 }
 </style>

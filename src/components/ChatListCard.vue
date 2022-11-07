@@ -26,9 +26,12 @@ export default {
     margin: 0 10px;
   }
   .name {
+    .text-ellipsis();
     margin: 5px 0;
+    font-weight: bold;
   }
   .message {
+    .text-ellipsis();
     font-size: 12px;
   }
 }

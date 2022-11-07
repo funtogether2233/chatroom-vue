@@ -4,7 +4,12 @@
       <ChatRoomCard></ChatRoomCard>
     </div>
     <div class="chat-content">
-      <ChatContent></ChatContent>
+      <ChatBubble></ChatBubble>
+      <ChatBubble></ChatBubble>
+      <ChatBubble></ChatBubble>
+      <ChatBubble></ChatBubble>
+      <ChatBubble></ChatBubble>
+      <ChatBubble></ChatBubble>
     </div>
     <div class="chat-send-box">
       <ChatSendBox></ChatSendBox>
@@ -14,14 +19,14 @@
 
 <script>
 import ChatRoomCard from "../components/TitleCard.vue";
-import ChatContent from "../components/ChatContent.vue";
+import ChatBubble from "../components/ChatBubble.vue";
 import ChatSendBox from "../components/ChatSendBox.vue";
 
 export default {
   name: "ChatBox",
   components: {
     ChatRoomCard,
-    ChatContent,
+    ChatBubble,
     ChatSendBox,
   },
 };
@@ -32,11 +37,13 @@ export default {
   display: flex;
   flex-flow: column;
   height: 100%;
-  .chat-room-card{
+  .chat-room-card {
     border-bottom: 1px solid @border-color;
   }
   .chat-content {
     flex: 1;
+    padding: 0 20px;
+    overflow: auto;
   }
 }
 </style>
