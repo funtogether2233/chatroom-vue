@@ -21,5 +21,6 @@ export default {
 .chat-list {
   overflow: auto;
   border-top: 1px solid @border-color;
+  height: 100%;
 }
 </style>

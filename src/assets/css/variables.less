@@ -1,24 +1,26 @@
+html,
+body,
+#app {
+  height: 100%;
+}
+
 // 长度
-@chat-list-width: 300px;
-@chat-list-height: 60px;
+@list-card-width: 300px;
+@list-card-height: 60px;
 @avatar-img-diameter: 40px;
 
 // 颜色
-// 滚动条颜色
 @scroll-color: #bbbcbe;
 @scroll-hover-color: #787b7e;
-// 边框颜色
-@border-color:#dadbdd;
-// 侧边卡片颜色
+@border-color: #dadbdd;
 @card-hover-color: #ededee;
 @card-focus-color: #e6f0ff;
-// 聊天框颜色
-@chat-box-background-color:#fafbfc;
-// 聊天气泡颜色
+@chat-box-background-color: #fafbfc;
 @chat-bubble-background-color: #ebeced;
 @chat-bubble-background-user-color: #d1e3ff;
 
 // 函数
+// 圆形头像
 .avatar-img {
   border-radius: 50%;
   width: @avatar-img-diameter;
