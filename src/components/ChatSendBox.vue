@@ -11,6 +11,6 @@ export default {
 <style lang="less" scoped>
 .chat-send-box {
   border-top: 1px solid @border-color;
-  height: 120px;
+  height: @send-box-height;
 }
 </style>

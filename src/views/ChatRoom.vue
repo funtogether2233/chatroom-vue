@@ -2,10 +2,24 @@
   <div class="chat-room">
     <div class="side">
       <div class="user-card">
-        <UserCard></UserCard>
+        <TitleCard></TitleCard>
       </div>
       <div class="chat-lists">
-        <ChatLists></ChatLists>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
+        <ChatListCard></ChatListCard>
       </div>
     </div>
     <div class="chat-box">
@@ -15,15 +29,15 @@
 </template>
 
 <script>
-import UserCard from "../layouts/UserCard.vue";
-import ChatLists from "../layouts/ChatLists.vue";
+import TitleCard from "../components/TitleCard.vue";
+import ChatListCard from "../components/ChatListCard.vue";
 import ChatBox from "./ChatBox.vue";
 
 export default {
   name: "ChatRoom",
   components: {
-    UserCard,
-    ChatLists,
+    TitleCard,
+    ChatListCard,
     ChatBox,
   },
 };
@@ -42,12 +56,17 @@ export default {
     flex-flow: column;
     border-right: 1px solid @border-color;
     width: @list-card-width;
+    .user-card {
+      border-bottom: 1px solid @border-color;
+    }
     .chat-lists {
       flex: 1;
+      overflow: auto;
     }
   }
   .chat-box {
     flex: 1;
+    background-color: @chat-box-background-color;
   }
 }
 </style>

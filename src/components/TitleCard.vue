@@ -15,9 +15,9 @@ export default {
 .card {
   display: flex;
   align-items: center;
-  border-bottom: 1px solid @border-color;
   width: 100%;
-  height: 70px;
+  height: @header-height;
+  background-color: @header-background-color;
   .avatar {
     .avatar-img();
     margin: 0 10px 0 20px;

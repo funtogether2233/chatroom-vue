@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import ChatRoomCard from "../components/ChatRoomCard.vue";
+import ChatRoomCard from "../components/TitleCard.vue";
 import ChatContent from "../components/ChatContent.vue";
 import ChatSendBox from "../components/ChatSendBox.vue";
 
@@ -32,6 +32,9 @@ export default {
   display: flex;
   flex-flow: column;
   height: 100%;
+  .chat-room-card{
+    border-bottom: 1px solid @border-color;
+  }
   .chat-content {
     flex: 1;
   }
