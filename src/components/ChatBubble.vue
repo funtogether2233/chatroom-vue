@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <img src="../assets/img/avatar-test.jpg" class="avatar" />
-    <div class="warp">
+    <div class="wrap">
       <p class="name">userX</p>
       <div class="bubble">
         Vue (发音为 /vjuː/，类似 view) 是一款用于构建用户界面的 JavaScript
@@ -28,7 +28,7 @@ export default {
     .avatar-img();
     margin: 0 10px 0 20px;
   }
-  .warp {
+  .wrap {
     .name {
       .text-ellipsis();
       font-size: 12px;

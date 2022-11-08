@@ -36,9 +36,9 @@ export default {
   }
 }
 .card:hover {
-  background-color: @card-hover-color;
+  background-color: @list-hover-color;
 }
 .card:focus {
-  background-color: @card-focus-color;
+  background-color: @list-focus-color;
 }
 </style>

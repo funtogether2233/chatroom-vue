@@ -1,9 +1,9 @@
 <template>
   <div class="chat-box">
-    <div class="chat-room-card">
-      <ChatRoomCard></ChatRoomCard>
+    <div class="header">
+      <p class="name">聊天室n</p>
     </div>
-    <div class="chat-content">
+    <div class="main">
       <ChatBubble></ChatBubble>
       <ChatBubble></ChatBubble>
       <ChatBubble></ChatBubble>
@@ -11,21 +11,19 @@
       <ChatBubble></ChatBubble>
       <ChatBubble></ChatBubble>
     </div>
-    <div class="chat-send-box">
+    <div class="footer">
       <ChatSendBox></ChatSendBox>
     </div>
   </div>
 </template>
 
 <script>
-import ChatRoomCard from "../components/TitleCard.vue";
-import ChatBubble from "../components/ChatBubble.vue";
-import ChatSendBox from "../components/ChatSendBox.vue";
+import ChatBubble from "../../components/ChatBubble.vue";
+import ChatSendBox from "./components/ChatSendBox.vue";
 
 export default {
   name: "ChatBox",
   components: {
-    ChatRoomCard,
     ChatBubble,
     ChatSendBox,
   },
@@ -37,13 +35,24 @@ export default {
   display: flex;
   flex-flow: column;
   height: 100%;
-  .chat-room-card {
-    border-bottom: 1px solid @border-color;
+  .header {
+    display: flex;
+    align-items: center;
+    border-bottom: @border-style;
+    height: @header-height;
+    p {
+      margin-left: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
   }
-  .chat-content {
+  .main {
     flex: 1;
     padding: 0 20px;
     overflow: auto;
+  }
+  .footer {
+    border-top: 1px solid @border-color;
   }
 }
 </style>

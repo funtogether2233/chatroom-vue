@@ -1,8 +1,23 @@
 <template>
   <div class="chat-room">
-    <div class="side">
-      <div class="user-card">
-        <TitleCard></TitleCard>
+    <div class="side-bar">
+      <img src="../assets/img/avatar-test.jpg" class="avatar" />
+      <div class="button">
+        <el-icon><ChatLineRound /></el-icon>
+        <p>好友</p>
+      </div>
+      <div class="button">
+        <el-icon><Monitor /></el-icon>
+        <p>群聊</p>
+      </div>
+    </div>
+    <div class="chat-bar">
+      <div class="search">
+        <el-input
+          v-model="input2"
+          placeholder="Type something"
+          :prefix-icon="Search"
+        />
       </div>
       <div class="chat-lists">
         <ChatListCard></ChatListCard>
@@ -29,14 +44,12 @@
 </template>
 
 <script>
-import TitleCard from "../components/TitleCard.vue";
 import ChatListCard from "../components/ChatListCard.vue";
-import ChatBox from "./ChatBox.vue";
+import ChatBox from "./chat-box/Index.vue";
 
 export default {
   name: "ChatRoom",
   components: {
-    TitleCard,
     ChatListCard,
     ChatBox,
   },
@@ -45,19 +58,53 @@ export default {
 
 <style lang="less" scoped>
 .chat-room {
-  //   position: absolute;
-  //   top: 0;
-  //   bottom: 0;
   display: flex;
   background-color: white;
   height: 100%;
-  .side {
+  .side-bar {
     display: flex;
     flex-flow: column;
-    border-right: 1px solid @border-color;
-    width: @list-card-width;
-    .user-card {
-      border-bottom: 1px solid @border-color;
+    align-items: center;
+    border-right: @border-style;
+    width: @side-bar-width;
+    background-color: @primary-color;
+    .avatar {
+      .avatar-img();
+      margin: 10px 0 15px;
+    }
+    .button {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      justify-content: center;
+      margin: 5px;
+      border-radius: 4px;
+      width: 40px;
+      height: 40px;
+      color: white;
+      font-size: 20px;
+      p {
+        font-size: 12px;
+      }
+    }
+    .button:hover {
+      background-color: @primary-hover-color;
+    }
+    .button:hover {
+      background-color: @primary-focus-color;
+    }
+  }
+  .chat-bar {
+    display: flex;
+    flex-flow: column;
+    border-right: @border-style;
+    width: @list-width;
+    .search {
+      display: flex;
+      align-items: center;
+      border-bottom: @border-style;
+      width: 100%;
+      height: @header-height;
     }
     .chat-lists {
       flex: 1;

@@ -1,5 +1,5 @@
 <template>
-  <div class="chat-send-box">
+  <div class="box">
     <div class="message">
       <el-input
         v-model="textarea"
@@ -28,10 +28,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.chat-send-box {
+.box {
   display: flex;
   padding: 20px;
-  border-top: 1px solid @border-color;
   .message {
     flex: 1;
     font-size: 24px;
