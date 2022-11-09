@@ -1,7 +1,7 @@
 <template>
   <div class="chat-room">
     <div class="side-bar">
-      <img src="../assets/img/avatar-test.jpg" class="avatar" />
+      <CircleAvatar class="avatar-img"></CircleAvatar>
       <div class="button">
         <el-icon><ChatLineRound /></el-icon>
         <p>好友</p>
@@ -44,12 +44,14 @@
 </template>
 
 <script>
+import CircleAvatar from "@/components/CircleAvatar.vue";
 import ChatListCard from "../components/ChatListCard.vue";
 import ChatBox from "./chat-box/Index.vue";
 
 export default {
-  name: "ChatRoom",
+  name: "Home",
   components: {
+    CircleAvatar,
     ChatListCard,
     ChatBox,
   },
@@ -68,8 +70,7 @@ export default {
     border-right: @border-style;
     width: @side-bar-width;
     background-color: @primary-color;
-    .avatar {
-      .avatar-img();
+    .avatar-img {
       margin: 10px 0 15px;
     }
     .button {

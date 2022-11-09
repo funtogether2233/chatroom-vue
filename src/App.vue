@@ -1,14 +1,14 @@
 <template>
-  <ChatRoom></ChatRoom>
+  <Home></Home>
 </template>
 
 <script>
-import ChatRoom from "./views/ChatRoom.vue";
+import Home from "@/views/Home.vue";
 
 export default {
   name: "App",
   components: {
-    ChatRoom,
+    Home,
   },
 };
 </script>

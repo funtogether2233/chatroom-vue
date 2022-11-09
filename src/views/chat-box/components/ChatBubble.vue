@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <img src="../assets/img/avatar-test.jpg" class="avatar" />
+    <CircleAvatar class="avatar-img"></CircleAvatar>
     <div class="wrap">
       <p class="name">userX</p>
       <div class="bubble">
@@ -14,8 +14,13 @@
 </template>
 
 <script>
+import CircleAvatar from "@/components/CircleAvatar.vue";
+
 export default {
   name: "ChatBubble",
+  components: {
+    CircleAvatar,
+  },
 };
 </script>
 
@@ -24,8 +29,7 @@ export default {
   display: flex;
   margin: 20px 0;
   width: 100%;
-  .avatar {
-    .avatar-img();
+  .avatar-img {
     margin: 0 10px 0 20px;
   }
   .wrap {

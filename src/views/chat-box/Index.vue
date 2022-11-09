@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import ChatBubble from "../../components/ChatBubble.vue";
+import ChatBubble from "./components/ChatBubble.vue";
 import ChatSendBox from "./components/ChatSendBox.vue";
 
 export default {
