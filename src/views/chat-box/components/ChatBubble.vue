@@ -2,7 +2,7 @@
   <div class="card">
     <CircleAvatar class="avatar-img"></CircleAvatar>
     <div class="wrap">
-      <p class="name">userX</p>
+      <p class="name text-small text-ellipsis">userX</p>
       <div class="bubble">
         Vue (发音为 /vjuː/，类似 view) 是一款用于构建用户界面的 JavaScript
         框架。它基于标准 HTML、CSS 和 JavaScript
@@ -27,21 +27,16 @@ export default {
 <style lang="less" scoped>
 .card {
   display: flex;
-  margin: 20px 0;
-  width: 100%;
+  margin: 10px;
   .avatar-img {
-    margin: 0 10px 0 20px;
+    margin: 0 10px;
   }
   .wrap {
-    .name {
-      .text-ellipsis();
-      font-size: 12px;
-    }
     .bubble {
-      margin: 10px 180px 0 0;
+      margin-top: 10px;
       padding: 16px;
       border-radius: 8px;
-      background-color: @chat-bubble-background-color;
+      background-color: @bubble-background-color;
       line-height: 150%;
     }
   }

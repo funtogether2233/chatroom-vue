@@ -13,7 +13,7 @@ export default {
 <style lang="less" scoped>
 .circle-avatar {
   border-radius: 50%;
-  width: @avatar-img-diameter;
-  height: @avatar-img-diameter;
+  width: @img-side-length;
+  height: @img-side-length;
 }
 </style>

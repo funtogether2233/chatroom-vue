@@ -1,15 +1,12 @@
 <template>
   <div class="chat-box">
     <div class="header">
-      <p class="name">聊天室n</p>
+      <p class="name text-ellipsis">聊天室n</p>
     </div>
     <div class="main">
-      <ChatBubble></ChatBubble>
-      <ChatBubble></ChatBubble>
-      <ChatBubble></ChatBubble>
-      <ChatBubble></ChatBubble>
-      <ChatBubble></ChatBubble>
-      <ChatBubble></ChatBubble>
+      <div v-for="i in 16" key="item">
+        <ChatBubble></ChatBubble>
+      </div>
     </div>
     <div class="footer">
       <ChatSendBox></ChatSendBox>
@@ -38,10 +35,10 @@ export default {
   .header {
     display: flex;
     align-items: center;
+    padding: 0 20px;
     border-bottom: @border-style;
     height: @header-height;
-    p {
-      margin-left: 20px;
+    .name {
       font-size: 18px;
       font-weight: bold;
     }
@@ -52,6 +49,7 @@ export default {
     overflow: auto;
   }
   .footer {
+    padding: 20px;
     border-top: 1px solid @border-color;
   }
 }

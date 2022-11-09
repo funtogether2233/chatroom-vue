@@ -30,13 +30,10 @@ export default {
 <style lang="less" scoped>
 .box {
   display: flex;
-  padding: 20px;
   .message {
     flex: 1;
-    font-size: 24px;
   }
   .send-button {
-    display: flex;
     margin-left: 10px;
   }
 }

@@ -3,25 +3,31 @@
 @side-bar-width: 60px;
 @list-width: 300px;
 @list-card-height: 60px;
-@avatar-img-diameter: 40px;
+@img-side-length: 40px;
 
 // 颜色
+@scroll-color: #bbbcbe;
+@scroll-hover-color: #787b7e;
 @primary-color: #324365;
 @primary-hover-color: #29354d;
 @primary-focus-color: #263149;
-@scroll-color: #bbbcbe;
-@scroll-hover-color: #787b7e;
 @border-color: #dadbdd;
 @list-hover-color: #ededee;
 @list-focus-color: #e6f0ff;
 @chat-box-background-color: #fafbfc;
-@chat-bubble-background-color: #ebeced;
-@chat-bubble-background-user-color: #d1e3ff;
+@bubble-background-color: #ebeced;
+@bubble-background-user-color: #d1e3ff;
 
-// 特殊
+// 一条边框
 @border-style:1px solid @border-color;
 
-// 函数
+// 高度100%，保证元素继承关系，使页面不超出
+html,
+body,
+#app {
+  box-sizing: border-box;
+  height: 100%;
+}
 
 // 单行文本，超出部分显示省略号
 .text-ellipsis {
@@ -30,12 +36,9 @@
   text-overflow: ellipsis;
 }
 
-// 高度100%，保证元素继承关系，使页面不超出
-html,
-body,
-#app {
-  box-sizing: border-box;
-  height: 100%;
+// 小号文本
+.text-small {
+  font-size: 12px;
 }
 
 // 全局修改滚动条样式

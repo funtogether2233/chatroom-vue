@@ -1,40 +1,29 @@
 <template>
-  <div class="chat-room">
+  <div class="Home">
     <div class="side-bar">
       <CircleAvatar class="avatar-img"></CircleAvatar>
       <div class="button">
         <el-icon><ChatLineRound /></el-icon>
-        <p>好友</p>
+        <p class="text-small">好友</p>
       </div>
       <div class="button">
         <el-icon><Monitor /></el-icon>
-        <p>群聊</p>
+        <p class="text-small">群聊</p>
       </div>
     </div>
     <div class="chat-bar">
       <div class="search">
         <el-input
-          v-model="input2"
-          placeholder="Type something"
+          size="large"
+          v-model="searchInput"
+          placeholder="Searh something"
           :prefix-icon="Search"
         />
       </div>
       <div class="chat-lists">
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
-        <ChatListCard></ChatListCard>
+        <div class="chat-list-card" v-for="i in 16" key="item">
+          <ChatListCard></ChatListCard>
+        </div>
       </div>
     </div>
     <div class="chat-box">
@@ -45,11 +34,20 @@
 
 <script>
 import CircleAvatar from "@/components/CircleAvatar.vue";
-import ChatListCard from "../components/ChatListCard.vue";
+import ChatListCard from "@/components/ChatListCard.vue";
 import ChatBox from "./chat-box/Index.vue";
+import { ref } from "vue";
+import { Search } from "@element-plus/icons-vue";
 
 export default {
   name: "Home",
+  setup() {
+    const searchInput = ref("");
+    return {
+      Search,
+      searchInput,
+    };
+  },
   components: {
     CircleAvatar,
     ChatListCard,
@@ -59,7 +57,7 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.chat-room {
+.Home {
   display: flex;
   background-color: white;
   height: 100%;
@@ -71,7 +69,7 @@ export default {
     width: @side-bar-width;
     background-color: @primary-color;
     .avatar-img {
-      margin: 10px 0 15px;
+      margin: 10px;
     }
     .button {
       display: flex;
@@ -80,18 +78,15 @@ export default {
       justify-content: center;
       margin: 5px;
       border-radius: 4px;
-      width: 40px;
-      height: 40px;
+      width: @img-side-length;
+      height: @img-side-length;
       color: white;
-      font-size: 20px;
-      p {
-        font-size: 12px;
-      }
+      font-size: 24px;
     }
     .button:hover {
       background-color: @primary-hover-color;
     }
-    .button:hover {
+    .button:focus {
       background-color: @primary-focus-color;
     }
   }
@@ -103,13 +98,23 @@ export default {
     .search {
       display: flex;
       align-items: center;
+      justify-content: center;
+      padding: 0 20px;
       border-bottom: @border-style;
-      width: 100%;
       height: @header-height;
     }
     .chat-lists {
       flex: 1;
       overflow: auto;
+      .chat-list-card {
+        margin: 1px 0 1px 10px;
+      }
+      .chat-list-card:hover {
+        background-color: @list-hover-color;
+      }
+      .chat-list-card:focus {
+        background-color: @list-focus-color;
+      }
     }
   }
   .chat-box {
