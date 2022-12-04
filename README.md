@@ -7,5 +7,8 @@
 使用技术栈:
 
 - Vue.js
+- Vite
+- Vue-Router
+- Pinia
 - ElementPlus
 - Less
