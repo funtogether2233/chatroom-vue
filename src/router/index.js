@@ -1,17 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import routes from "./routes";
 import pinia from "@/store";
-import useLoginStore from "@/store/login";
+import useUserStore from "@/store/user";
 
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
 });
 
-const whiteList = ["/login"];
-const login = useLoginStore(pinia);
+const whiteList = ["/login", "/register"];
+const useUser = useUserStore(pinia);
 router.beforeEach((to, from, next) => {
-  if (login.isLogin) {
+  if (useUser.isLogin) {
     if (to.path === "/login") {
       next("/");
     } else {

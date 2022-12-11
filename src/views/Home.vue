@@ -1,5 +1,6 @@
 <template>
   <div class="Home">
+    <!-- 侧边功能栏 -->
     <div class="side-bar">
       <CircleAvatar class="avatar-img"></CircleAvatar>
       <div class="button">
@@ -11,6 +12,8 @@
         <p class="text-small">群聊</p>
       </div>
     </div>
+
+    <!-- 聊天对象栏 -->
     <div class="chat-bar">
       <div class="search">
         <el-input
@@ -26,6 +29,8 @@
         </div>
       </div>
     </div>
+
+    <!-- 聊天框 -->
     <div class="chat-box">
       <ChatBox></ChatBox>
     </div>

@@ -2,10 +2,10 @@
   <div class="login">
     <div class="container">
       <div class="header">
-        <p>登陆</p>
+        <p>注册</p>
       </div>
 
-      <!-- 登陆表单 -->
+      <!-- 注册表单 -->
       <el-form ref="form" :model="userForm" class="user-form" :rules="rules">
         <el-form-item prop="account" label="账号">
           <el-input v-model="userForm.account" placeholder="请输入账号" />
@@ -21,10 +21,10 @@
 
         <div class="button">
           <el-form-item>
-            <el-button type="primary" @click="login">登陆</el-button>
+            <el-button type="primary" @click="register">确定</el-button>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary" @click="register">注册</el-button>
+            <el-button type="primary" @click="returnBack">返回</el-button>
           </el-form-item>
         </div>
       </el-form>
@@ -36,8 +36,7 @@
 import { reactive, ref } from "vue";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
-import useUserStore from "@/store/user";
-import { verifyLogin } from "@/api/user";
+import { registerUser } from "@/api/user";
 
 export default {
   name: "Login",
@@ -54,14 +53,20 @@ export default {
         {
           type: "string",
           required: true,
-          message: "请输入账号！",
+          message: "请输入6-16位字母或数字！",
+          min: 6,
+          max: 16,
+          pattern: /^[a-zA-Z\d]{6,16}$/,
         },
       ],
       password: [
         {
           type: "string",
           required: true,
-          message: "请输入密码！",
+          message: "请输入6-16位字母或数字！",
+          min: 6,
+          max: 16,
+          pattern: /^[a-zA-Z\d]{6,16}$/,
         },
       ],
     });
@@ -70,19 +75,20 @@ export default {
     const form = ref();
     // 路由
     const router = useRouter();
-    // userStore
-    const useUser = useUserStore();
 
-    // 登陆按钮
-    const login = () => {
+    // 注册按钮
+    const register = () => {
       form.value.validate(async (validate) => {
         if (validate) {
-          const res = await verifyLogin(userForm.account, userForm.password);
-          const { code, msg, userInfo } = res;
+          const res = await registerUser(userForm.account, userForm.password);
+          const { code, msg } = res;
           if (code === 200) {
-            useUser.isLogin = true;
-            [useUser.id, useUser.nickname] = [userInfo.id, userInfo.nickname];
-            router.push("/");
+            userForm.account = "";
+            userForm.password = "";
+            ElMessage({
+              message: `${msg}`,
+              type: "success",
+            });
           } else {
             ElMessage.error(`${msg}`);
           }
@@ -90,17 +96,17 @@ export default {
       });
     };
 
-    // 注册页面跳转
-    const register = () => {
-      router.push("/register");
+    // 返回按钮
+    const returnBack = () => {
+      router.push("/login");
     };
 
     return {
       userForm,
       rules,
       form,
-      login,
       register,
+      returnBack,
     };
   },
 };

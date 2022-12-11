@@ -1,13 +1,18 @@
 <template>
   <div class="chat-box">
+    <!-- 聊天对象title -->
     <div class="header">
       <p class="name text-ellipsis">聊天室n</p>
     </div>
+
+    <!-- 消息 -->
     <div class="main">
       <div v-for="i in 16" key="item">
         <ChatBubble></ChatBubble>
       </div>
     </div>
+
+    <!-- 输入框 -->
     <div class="footer">
       <ChatSendBox></ChatSendBox>
     </div>
