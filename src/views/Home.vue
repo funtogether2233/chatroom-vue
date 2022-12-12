@@ -23,6 +23,7 @@
           :prefix-icon="Search"
         />
       </div>
+
       <div class="chat-lists">
         <div class="chat-list-card" v-for="i in 16" key="item">
           <ChatListCard></ChatListCard>
@@ -82,7 +83,7 @@ export default {
       align-items: center;
       justify-content: center;
       margin: 5px;
-      border-radius: 4px;
+      border-radius: 8px;
       width: @img-side-length;
       height: @img-side-length;
       color: white;
@@ -113,6 +114,7 @@ export default {
       overflow: auto;
       .chat-list-card {
         margin: 1px 0 1px 10px;
+        border-radius: 8px;
       }
       .chat-list-card:hover {
         background-color: @list-hover-color;

@@ -7,8 +7,8 @@
 
       <!-- 登陆表单 -->
       <el-form ref="form" :model="userForm" class="user-form" :rules="rules">
-        <el-form-item prop="account" label="账号">
-          <el-input v-model="userForm.account" placeholder="请输入账号" />
+        <el-form-item prop="userId" label="账号">
+          <el-input v-model="userForm.userId" placeholder="请输入账号" />
         </el-form-item>
 
         <el-form-item prop="password" label="密码">
@@ -44,13 +44,13 @@ export default {
   setup() {
     // 账户和密码
     const userForm = reactive({
-      account: "",
+      userId: "",
       password: "",
     });
 
     // 输入约束
     const rules = reactive({
-      account: [
+      userId: [
         {
           type: "string",
           required: true,
@@ -77,7 +77,7 @@ export default {
     const login = () => {
       form.value.validate(async (validate) => {
         if (validate) {
-          const res = await verifyLogin(userForm.account, userForm.password);
+          const res = await verifyLogin(userForm.userId, userForm.password);
           const { code, msg, userInfo } = res;
           if (code === 200) {
             useUser.isLogin = true;
