@@ -23,7 +23,6 @@ export default {
 .card {
   display: flex;
   align-items: center;
-  border-radius: 4px;
   height: @list-card-height;
   .avatar-img {
     margin: 0 10px;
