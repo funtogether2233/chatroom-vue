@@ -25,7 +25,7 @@
       </div>
 
       <div class="chat-lists">
-        <div class="chat-list-card" v-for="i in 16" key="item">
+        <div class="chat-list-card">
           <ChatListCard></ChatListCard>
         </div>
       </div>
@@ -44,11 +44,15 @@ import ChatListCard from "@/components/ChatListCard.vue";
 import ChatBox from "./chat-box/Index.vue";
 import { ref } from "vue";
 import { Search } from "@element-plus/icons-vue";
+// import useUserStore from "@/store/user";
+// import socketio from "@/api/socket";
 
 export default {
   name: "Home",
   setup() {
     const searchInput = ref("");
+    // const useUser = useUserStore();
+    //   socketio.userlogin(useUser.id);
     return {
       Search,
       searchInput,

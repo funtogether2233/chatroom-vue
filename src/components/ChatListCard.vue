@@ -2,7 +2,7 @@
   <div class="card">
     <CircleAvatar class="avatar-img"></CircleAvatar>
     <div>
-      <div class="name text-ellipsis">聊天室n</div>
+      <div class="name text-ellipsis">默认聊天室</div>
       <div class="message text-small text-ellipsis">第一条消息</div>
     </div>
   </div>

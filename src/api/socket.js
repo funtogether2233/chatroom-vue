@@ -1,4 +1,6 @@
 import io from "socket.io-client";
+import useUserStore from "@/store/user";
+const useUser = useUserStore();
 
 // sever地址
 const API_URL = {
@@ -9,13 +11,25 @@ const API_URL = {
 const socket = io(API_URL.localHost);
 
 const socketio = {
-  connect: function () {
-    socket.on("severMessage", (data) => {
-      console.log(data);
-    });
+  // 进入聊天对象
+  enterChat: function (chatType, userId, chatObject) {
+    socket.emit("enterChat", { chatType, userId, chatObject });
   },
-  sendInfo: function (data) {
-    socket.emit("clientData", data);
+
+  sendMessage: function (chatType, fromId, toId, content) {
+    socket.emit("clientMessage", { chatType, fromId, toId, content });
+  },
+
+  receiveMessage: function (messages) {
+    socket.on("severMessage", (message) => {
+      const { chatType, fromId, toId, content } = message;
+      console.log(message);
+      messages.push({ chatType, fromId, toId, content });
+      //   return { chatType, fromId, toId, content };
+      //   if (fromId !== useUser.id) {
+      //     console.log(data.message);
+      //   }
+    });
   },
 };
 
