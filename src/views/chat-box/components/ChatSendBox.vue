@@ -8,8 +8,8 @@
       />
     </div>
     <div class="send-button">
-      <el-button type="primary" size="large" @click="sendMessage"
-        >发送</el-button
+      <el-button type="primary" size="large" @click="sendMessage">
+        发送</el-button
       >
     </div>
   </div>
@@ -19,6 +19,7 @@
 import { ref } from "vue";
 import useUserStore from "@/store/user";
 import socketio from "@/api/socket";
+import dayjs from "dayjs";
 
 export default {
   name: "ChatSendBox",
@@ -26,9 +27,11 @@ export default {
     const useUser = useUserStore();
     const textarea = ref("");
 
+    // 发送消息
     const sendMessage = () => {
       const content = textarea.value;
-      socketio.sendMessage("0", useUser.userId, "100001", content);
+      const time = dayjs().format("YYYY-MM-DD HH:mm:ss");
+      socketio.sendMessage("0", useUser.userId, "100001", time, content);
       textarea.value = "";
     };
 

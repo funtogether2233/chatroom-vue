@@ -23,6 +23,7 @@
           <el-form-item>
             <el-button type="primary" @click="login">登陆</el-button>
           </el-form-item>
+
           <el-form-item>
             <el-button type="primary" @click="register">注册</el-button>
           </el-form-item>
@@ -73,7 +74,7 @@ export default {
     // userStore
     const useUser = useUserStore();
 
-    // 登陆按钮
+    // 登陆
     const login = () => {
       form.value.validate(async (validate) => {
         if (validate) {

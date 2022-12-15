@@ -2,7 +2,10 @@
   <div class="card">
     <CircleAvatar class="avatar-img"></CircleAvatar>
     <div class="wrap">
-      <p class="name text-small text-ellipsis">{{ nickname }}</p>
+      <div class="header text-small text-ellipsis">
+        <div class="name">{{ nickname }}</div>
+        <div class="time">{{ messageTime }}</div>
+      </div>
       <div ref="bubbleRef" class="bubble">
         {{ bubbleContent }}
       </div>
@@ -14,6 +17,7 @@
 import CircleAvatar from "@/components/CircleAvatar.vue";
 import { ref, onMounted } from "vue";
 import useUserStore from "@/store/user";
+import dayjs from "dayjs";
 
 export default {
   name: "ChatBubble",
@@ -28,6 +32,7 @@ export default {
     const message = props.message;
     const nickname = message.fromId;
     const bubbleContent = message.content;
+    const messageTime = dayjs(message.time).format("YYYY-MM-DD HH:mm");
 
     // user气泡框单独颜色
     const bubbleRef = ref(null);
@@ -41,6 +46,7 @@ export default {
     return {
       props,
       nickname,
+      messageTime,
       bubbleContent,
       bubbleRef,
     };
@@ -56,12 +62,29 @@ export default {
     margin: 0 10px;
   }
   .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    .header {
+      display: flex;
+      .name {
+        font-weight: bolder;
+      }
+      .time {
+        color: gray;
+        white-space: pre-wrap;
+        &::before {
+          content: "    ";
+        }
+      }
+    }
     .bubble {
       margin-top: 10px;
       padding: 10px;
       border-radius: 8px;
       background-color: @bubble-background-color;
       line-height: 150%;
+      white-space: pre-wrap;
     }
   }
 }

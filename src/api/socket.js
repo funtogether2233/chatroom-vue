@@ -1,6 +1,4 @@
 import io from "socket.io-client";
-import useUserStore from "@/store/user";
-const useUser = useUserStore();
 
 // sever地址
 const API_URL = {
@@ -16,14 +14,16 @@ const socketio = {
     socket.emit("enterChat", { chatType, userId, chatObject });
   },
 
-  sendMessage: function (chatType, fromId, toId, content) {
-    socket.emit("clientMessage", { chatType, fromId, toId, content });
+  // 发送信息
+  sendMessage: function (chatType, fromId, toId, time, content) {
+    socket.emit("clientMessage", { chatType, fromId, toId, time, content });
   },
 
+  // 接收信息
   receiveMessage: function (messages) {
     socket.on("severMessage", (message) => {
-      const { chatType, fromId, toId, content } = message;
-      messages.push({ chatType, fromId, toId, content });
+      const { chatType, fromId, toId, time, content } = message;
+      messages.push({ chatType, fromId, toId, time, content });
     });
   },
 };

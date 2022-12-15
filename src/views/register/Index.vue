@@ -23,6 +23,7 @@
           <el-form-item>
             <el-button type="primary" @click="register">确定</el-button>
           </el-form-item>
+
           <el-form-item>
             <el-button type="primary" @click="returnBack">返回</el-button>
           </el-form-item>
@@ -76,7 +77,7 @@ export default {
     // 路由
     const router = useRouter();
 
-    // 注册按钮
+    // 注册
     const register = () => {
       form.value.validate(async (validate) => {
         if (validate) {
@@ -96,7 +97,7 @@ export default {
       });
     };
 
-    // 返回按钮
+    // 返回登陆页面
     const returnBack = () => {
       router.push("/login");
     };

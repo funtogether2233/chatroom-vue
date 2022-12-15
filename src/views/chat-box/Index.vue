@@ -7,9 +7,6 @@
 
     <!-- 消息 -->
     <div class="main">
-      <!-- <div v-for="i in 16" key="item">
-        <ChatBubble></ChatBubble>
-      </div> -->
       <div v-for="message of messages" key="item">
         <ChatBubble :message="message"></ChatBubble>
       </div>
@@ -38,7 +35,11 @@ export default {
   setup() {
     const useUser = useUserStore();
     const messages = reactive([]);
+
+    // 进入聊天
     socketio.enterChat("0", useUser.userId, "100001");
+
+    // 接收聊天信息
     socketio.receiveMessage(messages);
 
     return {

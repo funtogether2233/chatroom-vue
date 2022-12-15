@@ -15,6 +15,7 @@
 
     <!-- 聊天对象栏 -->
     <div class="chat-bar">
+      <!-- 搜索框 -->
       <div class="search">
         <el-input
           size="large"
@@ -24,6 +25,7 @@
         />
       </div>
 
+      <!-- 聊天对象列表 -->
       <div class="chat-lists">
         <div class="chat-list-card">
           <ChatListCard></ChatListCard>
@@ -44,15 +46,11 @@ import ChatListCard from "@/components/ChatListCard.vue";
 import ChatBox from "./chat-box/Index.vue";
 import { ref } from "vue";
 import { Search } from "@element-plus/icons-vue";
-// import useUserStore from "@/store/user";
-// import socketio from "@/api/socket";
 
 export default {
   name: "Home",
   setup() {
     const searchInput = ref("");
-    // const useUser = useUserStore();
-    //   socketio.userlogin(useUser.id);
     return {
       Search,
       searchInput,
