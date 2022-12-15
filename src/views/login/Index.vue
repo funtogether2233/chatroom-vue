@@ -81,7 +81,11 @@ export default {
           const { code, msg, userInfo } = res;
           if (code === 200) {
             useUser.isLogin = true;
-            [useUser.id, useUser.nickname] = [userInfo.id, userInfo.nickname];
+            [useUser.id, useUser.userId, useUser.nickname] = [
+              userInfo.id,
+              userInfo.userId,
+              userInfo.nickname,
+            ];
             router.push("/");
           } else {
             ElMessage.error(`${msg}`);

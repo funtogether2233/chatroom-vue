@@ -38,7 +38,7 @@ export default {
   setup() {
     const useUser = useUserStore();
     const messages = reactive([]);
-    socketio.enterChat("0", useUser.id, "100001");
+    socketio.enterChat("0", useUser.userId, "100001");
     socketio.receiveMessage(messages);
 
     return {

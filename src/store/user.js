@@ -6,6 +6,7 @@ const useUserStore = defineStore("user", {
     return {
       isLogin: false,
       id: "000000",
+      userId: "",
       nickname: "user",
     };
   },

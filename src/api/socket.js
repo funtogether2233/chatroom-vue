@@ -23,12 +23,7 @@ const socketio = {
   receiveMessage: function (messages) {
     socket.on("severMessage", (message) => {
       const { chatType, fromId, toId, content } = message;
-      console.log(message);
       messages.push({ chatType, fromId, toId, content });
-      //   return { chatType, fromId, toId, content };
-      //   if (fromId !== useUser.id) {
-      //     console.log(data.message);
-      //   }
     });
   },
 };

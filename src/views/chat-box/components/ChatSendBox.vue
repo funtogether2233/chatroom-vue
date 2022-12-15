@@ -28,7 +28,7 @@ export default {
 
     const sendMessage = () => {
       const content = textarea.value;
-      socketio.sendMessage("0", useUser.id, "100001", content);
+      socketio.sendMessage("0", useUser.userId, "100001", content);
       textarea.value = "";
     };
 
