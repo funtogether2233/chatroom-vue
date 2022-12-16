@@ -24,6 +24,7 @@ import ChatBubble from "./components/ChatBubble.vue";
 import ChatSendBox from "./components/ChatSendBox.vue";
 import { reactive } from "vue";
 import useUserStore from "@/store/user";
+import { getGroupMessage } from "@/api/groupMessage";
 import socketio from "@/api/socket";
 
 export default {
@@ -38,6 +39,13 @@ export default {
 
     // 进入聊天
     socketio.enterChat("0", useUser.userId, "100001");
+
+    // 获取group历史聊天记录
+    const getHistoryMessage = async () => {
+      const messageList = (await getGroupMessage("100001")).messageList;
+      messages.push(...messageList);
+    };
+    getHistoryMessage();
 
     // 接收聊天信息
     socketio.receiveMessage(messages);

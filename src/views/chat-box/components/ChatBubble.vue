@@ -30,7 +30,7 @@ export default {
   setup(props) {
     // 消息内容
     const message = props.message;
-    const nickname = message.fromId;
+    const nickname = message.fromId || message.member_id;
     const bubbleContent = message.content;
     const messageTime = dayjs(message.time).format("YYYY-MM-DD HH:mm");
 

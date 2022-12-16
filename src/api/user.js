@@ -1,14 +1,14 @@
 import http from "./request";
 
 const REQUEST_URL = {
-  banner: "/banner",
-  recommendList: "/personalized",
+  login: "/login",
+  register: "/register",
 };
 
 // 登陆验证
 export const verifyLogin = async (userId, password) => {
   try {
-    const res = await http.post("/login", {
+    const res = await http.post(REQUEST_URL.login, {
       userId,
       password,
     });
@@ -21,7 +21,7 @@ export const verifyLogin = async (userId, password) => {
 // 注册用户
 export const registerUser = async (userId, password) => {
   try {
-    const res = await http.post("/register", {
+    const res = await http.post(REQUEST_URL.register, {
       userId,
       password,
     });
