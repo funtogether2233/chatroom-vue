@@ -3,6 +3,7 @@
     <!-- 聊天对象title -->
     <div class="header">
       <p class="name text-ellipsis">默认聊天室</p>
+      <el-button type="primary" @click="exit">退出</el-button>
     </div>
 
     <!-- 消息 -->
@@ -23,6 +24,7 @@
 import ChatBubble from "./components/ChatBubble.vue";
 import ChatSendBox from "./components/ChatSendBox.vue";
 import { reactive } from "vue";
+import { useRouter } from "vue-router";
 import useUserStore from "@/store/user";
 import { getGroupMessage } from "@/api/groupMessage";
 import socketio from "@/api/socket";
@@ -50,8 +52,17 @@ export default {
     // 接收聊天信息
     socketio.receiveMessage(messages);
 
+    // 退出
+    const router = useRouter();
+    function exit() {
+      useUser.isLogin = false;
+      localStorage.removeItem("user_token");
+      router.push("/login");
+    }
+
     return {
       messages,
+      exit,
     };
   },
 };
@@ -64,6 +75,7 @@ export default {
   height: 100%;
   .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     padding: 0 20px;
     border-bottom: @border-style;

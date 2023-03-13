@@ -9,6 +9,16 @@ const API_URL = {
 const http = axios.create({
   baseURL: API_URL.localHost,
   timeout: 2000,
+  interceptors: {
+    requestSuccess: (config) => {
+      // 每个请求自动携带token
+      const token = localStorage.getItem("user_token");
+      if (config.headers && token) {
+        config.headers.Authorization = `Bearer ${token}`;
+      }
+      return config;
+    },
+  },
 });
 
 // 响应拦截器

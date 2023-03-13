@@ -79,7 +79,9 @@ export default {
       form.value.validate(async (validate) => {
         if (validate) {
           const res = await verifyLogin(userForm.userId, userForm.password);
-          const { code, msg, userInfo } = res;
+          const { code, msg, userInfo, token } = res;
+          console.log(token);
+          localStorage.setItem("user_token", token);
           if (code === 200) {
             useUser.isLogin = true;
             [useUser.id, useUser.userId, useUser.nickname] = [
